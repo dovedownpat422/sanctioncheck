@@ -109,7 +109,7 @@ def check(
         typer.Argument(
             metavar="NAME",
             help='Name to screen. Multiple words may be passed unquoted: '
-                 '`check Viktor Bout` is equivalent to `check "Viktor Bout"`. '
+                 '`check John Doe` is equivalent to `check "John Doe"`. '
                  'Matching is case-insensitive and tolerant to diacritics.',
         ),
     ],

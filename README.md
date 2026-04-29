@@ -32,7 +32,7 @@ Python 3.11+ is required.
 
 ```bash
 # Default: query all four sources, threshold 85%
-sanctioncheck check "Viktor Bout"
+sanctioncheck check "John Doe"
 
 # Filter source(s)
 sanctioncheck check "Bank Melli Iran" --source ofac,un
@@ -47,17 +47,17 @@ sanctioncheck update
 sanctioncheck stats
 
 # Pipe results to jq
-sanctioncheck check "Viktor Bout" --json | jq '.[0]'
+sanctioncheck check "John Doe" --json | jq '.[0]'
 ```
 
 ### Name syntax
 
-- **Case-insensitive** — `Viktor Bout`, `viktor bout` and `VIKTOR BOUT` all match the same record.
+- **Case-insensitive** — `John Doe`, `john doe` and `JOHN DOE` all match the same record.
 - **Diacritics-insensitive** — `Élise Müller` and `Elise Muller` are equivalent.
 - **Quotes are optional** for multi-word names — both forms work:
   ```bash
-  sanctioncheck check Viktor Bout
-  sanctioncheck check "Viktor Bout"
+  sanctioncheck check John Doe
+  sanctioncheck check "John Doe"
   ```
   Use quotes when the name contains shell metacharacters (`&`, `|`, `;`, `*`, `(`, `)`).
 
