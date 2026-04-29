@@ -1,0 +1,26 @@
+{
+  "_comment": "Local fallback for DGT (Direction Générale du Trésor, France) when the public API is unreachable. Manually curated minimal dataset for offline screening and tests.",
+  "Publications": {
+    "DateDePublication": "2026-04-29",
+    "PublicationDetail": [
+      {
+        "IdRegistre": "DGT-001",
+        "Nature": "Personne physique",
+        "Nom": "BOUT",
+        "Prenom": "Viktor",
+        "Alias": ["Viktor Anatolievich Bout", "Boris", "Vadim Markovich Aminov"],
+        "FondementJuridique": "Trafic d'armes - Résolutions ONU 1267/1989",
+        "DateMesure": "2004-04-26"
+      },
+      {
+        "IdRegistre": "DGT-002",
+        "Nature": "Personne morale",
+        "Nom": "BANK MELLI IRAN",
+        "Prenom": "",
+        "Alias": ["Bank Melli", "BMI"],
+        "FondementJuridique": "Programme nucléaire iranien",
+        "DateMesure": "2008-06-23"
+      }
+    ]
+  }
+}
