@@ -104,7 +104,15 @@ def _render_results(
 
 @app.command()
 def check(
-    query: Annotated[str, typer.Argument(help="Name to screen.")],
+    query_parts: Annotated[
+        list[str],
+        typer.Argument(
+            metavar="NAME",
+            help='Name to screen. Multiple words may be passed unquoted: '
+                 '`check Viktor Bout` is equivalent to `check "Viktor Bout"`. '
+                 'Matching is case-insensitive and tolerant to diacritics.',
+        ),
+    ],
     threshold: Annotated[int, typer.Option("--threshold", "-t", min=0, max=100)] = DEFAULT_THRESHOLD,
     source: Annotated[str, typer.Option("--source", "-s", help="Comma-separated list (eu,un,ofac,dgt) or 'all'.")] = "all",
     refresh: Annotated[bool, typer.Option("--refresh", help="Force cache refresh.")] = False,
@@ -113,6 +121,10 @@ def check(
 ) -> None:
     """Screen a name against the configured sanctions lists."""
     logging.basicConfig(level=logging.INFO if verbose else logging.WARNING, format="%(message)s")
+
+    query = " ".join(query_parts).strip()
+    if not query:
+        raise typer.BadParameter("NAME is required.")
 
     sources = _selected_sources(source)
     start = time.perf_counter()

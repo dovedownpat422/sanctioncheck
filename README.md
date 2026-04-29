@@ -50,6 +50,17 @@ sanctioncheck stats
 sanctioncheck check "Viktor Bout" --json | jq '.[0]'
 ```
 
+### Name syntax
+
+- **Case-insensitive** — `Viktor Bout`, `viktor bout` and `VIKTOR BOUT` all match the same record.
+- **Diacritics-insensitive** — `Élise Müller` and `Elise Muller` are equivalent.
+- **Quotes are optional** for multi-word names — both forms work:
+  ```bash
+  sanctioncheck check Viktor Bout
+  sanctioncheck check "Viktor Bout"
+  ```
+  Use quotes when the name contains shell metacharacters (`&`, `|`, `;`, `*`, `(`, `)`).
+
 ## Sources
 
 | List | Authority                                    | Format | URL                                                                                                               |
